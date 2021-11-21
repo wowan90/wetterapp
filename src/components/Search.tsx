@@ -2,10 +2,7 @@ import React, { FC, useState, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { setAlert } from '../store/actions/alertActions';
-import { getWeather, getWeatherForcast, setLoading } from '../store/actions/weatherActions';
-
-import { IWeatherData } from '../store/types';
-
+import { getWeather, setLoading, setWeatherForcast } from '../store/actions/weatherActions';
 
 interface SearchProps {
   title: string;
@@ -29,8 +26,10 @@ const Search: FC<SearchProps> = ({ title }) => {
     }
 
     dispatch(setLoading());   
-    dispatch(getWeather(city));   
-    
+    dispatch(getWeather(city));
+
+    // Reset WeatherForcast data, whenever a new city is selected
+    dispatch(setWeatherForcast()); 
     setCity('');
   }
 

@@ -1,8 +1,8 @@
-import React, { FC, useState, FormEvent, ChangeEvent } from 'react';
+import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setAlert } from '../store/actions/alertActions';
-import { getWeather, getWeatherForcast, setLoading } from '../store/actions/weatherActions';
+import { } from '../store/actions/alertActions';
+import { getWeatherForcast} from '../store/actions/weatherActions';
 
 import { IWeatherData } from '../store/types';
 

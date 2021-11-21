@@ -1,5 +1,6 @@
 export const GET_WEATHERTODAY = 'GET_WATHERTODAY';
 export const GET_WEATHERFORCAST = 'GET_WEATHERFORCAST';
+export const SET_WEATHERFORCAST = 'SET_WEATHERFORCAST';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_ALERT = 'SET_ALERT';
@@ -56,21 +57,12 @@ export interface IWeatherData
     wind:{
         speed: number;
         deg: number;
-    };
-    
+    };    
 }
 
 export interface IWeatherForcastData{
     
-    daily: [
-        // IDaily[],        
-        // IDaily[],
-        // IDaily[],
-        // IDaily[],
-        // IDaily[],
-        // IDaily[],
-        // IDaily[],
-        // IDaily[],
+    daily: [        
          { dt: number,
           temp: {
               day: number,
@@ -158,6 +150,11 @@ interface GetWeatherForcast {
     payload: IWeatherForcastData;
 }
 
+interface SetWeatherForcast {
+    type: typeof SET_WEATHERFORCAST;
+    payload: null;
+}
+
 interface SetLoadingAction {
     type: typeof SET_LOADING;
 }
@@ -167,7 +164,7 @@ interface SetErrorAction {
     payload: string;
 }
 
-export type WeatherAction = GetWeatherAction | SetLoadingAction | SetErrorAction | GetWeatherForcast ;
+export type WeatherAction = GetWeatherAction | SetLoadingAction | SetErrorAction | GetWeatherForcast | SetWeatherForcast ;
 
 export interface AlertAction {
     type: typeof SET_ALERT;

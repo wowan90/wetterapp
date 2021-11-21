@@ -1,4 +1,4 @@
-import { WeatherAction, GET_WEATHERFORCAST,  SET_LOADING, SET_ERROR, WeatherForcastState } from "../types";
+import { WeatherAction, GET_WEATHERFORCAST, SET_WEATHERFORCAST,  SET_LOADING, SET_ERROR, WeatherForcastState } from "../types";
 
 const initialState: WeatherForcastState = {
   data: null,
@@ -10,7 +10,14 @@ const initialState: WeatherForcastState = {
 //which is an event containing the data to calculate the new state
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state: WeatherForcastState = initialState, action: WeatherAction): WeatherForcastState => {
-  switch(action.type) {  
+  switch(action.type) {
+      
+    case SET_WEATHERFORCAST:
+    return {        
+        data: action.payload,
+        loading: false,
+        error: ''
+    }
    
     case GET_WEATHERFORCAST:
     return {        

@@ -1,6 +1,6 @@
 import { ThunkAction } from 'redux-thunk';
-import {RootState } from '..';
-import { WeatherAction, IWeatherData, IWeatherForcastData, IWeatherError, GET_WEATHERTODAY, SET_LOADING, SET_ERROR, GET_WEATHERFORCAST } from '../types'
+import { RootState } from '..';
+import { WeatherAction, IWeatherData, IWeatherForcastData, IWeatherError, GET_WEATHERTODAY, SET_LOADING, SET_ERROR, GET_WEATHERFORCAST, SET_WEATHERFORCAST } from '../types'
 
 export const getWeather = (cityName: string): ThunkAction<void, RootState, null, WeatherAction> => {
     return async dispatch => {
@@ -48,6 +48,13 @@ export const getWeatherForcast = (lat: number, lon: number): ThunkAction<void, R
             });
         }     
     }
+}
+
+export const setWeatherForcast = () : WeatherAction => {
+    return  {
+        type: SET_WEATHERFORCAST,
+        payload: null
+    }     
 }
 
 export const setLoading = (): WeatherAction => {
